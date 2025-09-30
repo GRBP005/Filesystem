@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Sync App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="loginScreen" class="screen active">
+        <div class="auth-container">
+            <div class="auth-card">
+                <h1>📁 File Sync</h1>
+                <p>Sincroniza archivos entre dispositivos</p>
+                
+                <form id="loginForm">
+                    <input type="text" id="loginUsername" placeholder="Usuario" required>
+                    <input type="password" id="loginPassword" placeholder="Contraseña" required>
+                    <button type="submit">Iniciar Sesión</button>
+                </form>
+                
+                <div class="auth-switch">
+                    <span>¿No tienes cuenta? </span>
+                    <a href="#" id="showRegister">Regístrate</a>
+                </div>
+                
+                <div class="demo-accounts">
+                    <h3>Cuentas de demostración:</h3>
+                    <p><strong>admin</strong> / <strong>123456</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Screen -->
+    <div id="registerScreen" class="screen">
+        <div class="auth-container">
+            <div class="auth-card">
+                <h1>📁 Crear Cuenta</h1>
+                
+                <form id="registerForm">
+                    <input type="text" id="registerUsername" placeholder="Usuario" required>
+                    <input type="password" id="registerPassword" placeholder="Contraseña" required>
+                    <button type="submit">Registrarse</button>
+                </form>
+                
+                <div class="auth-switch">
+                    <span>¿Ya tienes cuenta? </span>
+                    <a href="#" id="showLogin">Iniciar Sesión</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main App Screen -->
+    <div id="appScreen" class="screen">
+        <header>
+            <div class="header-content">
+                <h1>📁 File Sync</h1>
+                <div class="user-info">
+                    <span id="currentUser">Usuario</span>
+                    <button id="logoutBtn" class="logout-btn">Cerrar Sesión</button>
+                </div>
+            </div>
+        </header>
+
+        <main class="dashboard-container">
+            <div class="upload-section">
+                <h2>📤 Subir Archivos</h2>
+                <div class="upload-area" id="uploadArea">
+                    <input type="file" id="fileInput" multiple style="display: none;">
+                    <div class="upload-placeholder">
+                        <span class="upload-icon">📁</span>
+                        <p>Arrastra archivos aquí o haz clic para seleccionar</p>
+                        <small>Múltiples archivos permitidos</small>
+                    </div>
+                </div>
+                <button id="uploadBtn" class="primary-btn" disabled>Subir Archivos</button>
+                <div id="uploadProgress" class="progress-container" style="display: none;">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <span id="progressText">0%</span>
+                </div>
+            </div>
+
+            <div class="files-section">
+                <div class="section-header">
+                    <h2>📂 Archivos Compartidos</h2>
+                    <button id="refreshBtn" class="secondary-btn">🔄 Actualizar</button>
+                </div>
+                
+                <div id="filesList" class="files-list">
+                    <div class="loading">Cargando archivos...</div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
